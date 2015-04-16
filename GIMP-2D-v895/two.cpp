@@ -47,7 +47,7 @@ double neoHookEnergy(const patch& pch, const Matrix2& F) {
 }
 
 void history(patch& pch, ostream& os, int& fc) { // animGif, radialGif, etc
-   if (single & (pch.incCount % 8 == 0)) {
+   if (single && (pch.incCount % 8 == 0)) {
       fc += 1;
       os << '#' << fc << '\n';
 
