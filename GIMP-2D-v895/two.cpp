@@ -53,6 +53,7 @@ void history(patch& pch, ostream& os, int& fc) { // animGif, radialGif, etc
 
       for (int i = 0; i < pch.Npart(); i += 1) {
          //os<<pch.px[i]<<'\t'<<pch.pJ[i]<<'\t'<<pch.partSize/double(pch.I)<<'\n';
+         //cerr << "px[i]: " << pch.px[i] << "\n";
          os << pch.px[i] << '\t' << neoHookEnergy(pch, pch.pF[i]) << '\t' << pch.partSize / double(pch.I) << '\n';
       }
 
@@ -73,27 +74,47 @@ int main(int argc, char**argv) {
       int Nc = 20;                       am["Ncell"] >> Nc;
       string shpstr = "GIMP";            am["shape"] >> shpstr;
       string tmistr = "cen";             am["tInt" ] >> tmistr;
-      double CFL = .2;                   am["CFL"  ] >> CFL;
+      double CFL = 0.2;                  am["CFL"  ] >> CFL;
       am["single"] >> single;
-      shapeSC& shp = makeShape(shpstr);
-      patch pch(Nc, Nc, 0., 0., 1., 1., shp.Nghost(), 1.);
-      timeIntSC&ti = makeTimeInt(tmistr, shp, pch);
-      pch.ppe = 2.;                      am["ppe"  ] >> pch.ppe;
-      pch.load = .1;                     am["load" ] >> pch.load;
-      pch.Ymod = 1000.;
-      pch.dens = 1000.;
-      pch.vwav = sqrt(pch.Ymod / pch.dens);
-      pch.pois = .3;
-      pch.damp = .0;
-      pch.partSize = 32.;                am["p1"   ] >> pch.partSize;
-      pch.dt = min(pch.dx, pch.dy) * CFL / sqrt(pch.Ymod / pch.dens);
-      fillAnnulusRegular(pch, Vector2(.25, .25), 0., .2, pch.ppe, shp.Nsupport());
-      fillAnnulusRegular(pch, Vector2(.75, .75), 0., .2, pch.ppe, shp.Nsupport());
-      pch.elaps = .0 / pch.vwav;
 
+      // create the shape class shapeSC
+      shapeSC& shp = makeShape(shpstr);
+
+      // create one patch
+      patch pch(Nc, Nc, 0.0, 0.0, 1.0, 1.0, shp.Nghost(), 1.0);
+      
+      // create the time integration class timeIntSC
+      timeIntSC& ti = makeTimeInt(tmistr, shp, pch);
+
+      pch.ppe  = 2.0;                    am["ppe"  ] >> pch.ppe;
+      pch.load = 0.1;                    am["load" ] >> pch.load;
+      pch.Ymod = 1000.0;
+      pch.dens = 1000.0;
+      pch.vwav = sqrt(pch.Ymod / pch.dens);
+      pch.pois = 0.3;
+      pch.damp = 0.0;
+      pch.partSize = 32.0;               am["p1"   ] >> pch.partSize;
+      pch.dt = min(pch.dx, pch.dy) * CFL / sqrt(pch.Ymod / pch.dens);
+
+      // Form a cloud of particles to represent two disks
+
+      // disk 1
+      fillAnnulusRegular(pch, Vector2(0.25, 0.25), 0.0, 0.2, pch.ppe, shp.Nsupport());
+
+      // disk 2
+      fillAnnulusRegular(pch, Vector2(0.75, 0.75), 0.0, 0.2, pch.ppe, shp.Nsupport());
+
+      pch.elaps = 0.0 / pch.vwav;
+
+      // Set initial velocity and initial deformation gradient
       for (int i = 0; i < pch.Npart(); i += 1) {
+         // Initial position
          pch.px[i] = pch.pX[i];
-         pch.pv[i] = (pch.px[i].y > 1. - pch.px[i].x ? -1. : 1.) * Vector2(pch.load, pch.load);
+
+         // Initial volocity
+         pch.pv[i] = (pch.px[i].y > 1.0 - pch.px[i].x ? -1.0 : 1.0) * Vector2(pch.load, pch.load);
+
+         // Initial deformation gradient
          pch.pF[i] = I2();
       }
 
@@ -102,8 +123,10 @@ int main(int argc, char**argv) {
       // main loop
       ofstream hf("history.xls");
       int frameCount = 0;
-      double Li = 0., L2 = 0., L1 = 0.;
+      double Li = 0.0, L2 = 0.0, L1 = 0.0;
       
+      cerr << '\n';
+
       try {
          while (true) {
             ti.advance(pch);
@@ -124,19 +147,19 @@ int main(int argc, char**argv) {
             cerr << '~';
          }
       }
-      catch (const char*s) {cerr << "Defined Exception:" << s << endl; L1 = L2 = Li = 1.;}
-      catch (const std::exception&error) {cerr << "Standard Exception:" << error.what() << endl;}
-      catch (...) {cerr << "Unknown Exception" << endl;}
+      catch (const char*s) {cerr << "\nDefined Exception: " << s << endl; L1 = L2 = Li = 1.;}
+      catch (const std::exception&error) {cerr << "\nStandard Exception: " << error.what() << endl;}
+      catch (...) {cerr << "\nUnknown Exception" << endl;}
       cerr << '\n';
 
       // post process
       cerr << "last step: " << pch.incCount << endl;
 
       if (single) {
-         cerr << "Wall time:" << double(clock() - t) / CPS << tab << "L-inf:" << Li << endl;
+         cerr << "Wall time: " << double(clock() - t) / CPS << tab << "L-inf: " << Li << endl;
          cout << frameCount;
       } else {
-         cerr << "Wall time:" << double(clock() - t) / CPS << tab << "L-inf:" << Li << endl;
+         cerr << "Wall time: " << double(clock() - t) / CPS << tab << "L-inf: " << Li << endl;
          cout << pch.Npart() << '\t'
               << pch.I*pch.J << '\t'
               << pch.incCount << '\t'

@@ -146,7 +146,7 @@ def ring():
    # make an animated gif of the results
    print "Requested Frames:",ni,
    gf=open('gnucomm.xls','w')
-   print>>gf,"set term gif animate opt delay 10 size 800,600 crop background '#7D96A4' font 'Tahoma' 14"
+   print>>gf,"set term gif animate opt delay 10 size 800,600 crop background '#7D96A4' font 'tahoma' 14"
    print>>gf,"set output 'ring.gif'"
    print>>gf,"set view map"
    print>>gf,"set cbrange [-8000:6000]"
@@ -174,7 +174,7 @@ def impact():
    # make an animated gif of the results
    print "Requested Frames:",ni,
    gf=open('gnucomm.xls','w')
-   print>>gf,"set term gif animate opt delay 10 size 800,600 crop background '#7D96A4' font 'Tahoma' 14"
+   print>>gf,"set term gif animate opt delay 10 size 800,600 crop background '#7D96A4' font 'tahoma' 14"
    print>>gf,"set output 'impact.gif'"
    print>>gf,"set view map"
    print>>gf,"set cbrange [.5:1.5]"
@@ -202,7 +202,7 @@ def align():
    # make an animated gif of the results
    print "Requested Frames:",ni,
    gf=open('gnucomm.xls','w')
-   print>>gf,"set term gif animate opt delay 10 size 800,600 crop background '#7D96A4' font 'Tahoma' 14"
+   print>>gf,"set term gif animate opt delay 10 size 800,600 crop background '#7D96A4' font 'tahoma' 14"
    print>>gf,"set output 'align.gif'"
    print>>gf,"set view map"
    print>>gf,"set cbrange [.5:1.5]"
@@ -230,7 +230,7 @@ def tear():
    # make an animated gif of the results
    print "Requested Frames:",ni,
    gf=open('gnucomm.xls','w')
-   print>>gf,"set term gif animate opt delay 10 size 800,600 crop background '#7D96A4' font 'Tahoma' 14"
+   print>>gf,"set term gif animate opt delay 10 size 800,600 crop background '#7D96A4' font 'tahoma' 14"
    print>>gf,"set output 'tear.gif'"
    print>>gf,"set view map"
    #print>>gf,"set cbrange [.5:1.5]"
@@ -259,19 +259,30 @@ def two():
    # make an animated gif of the results
    print "Requested Frames:",ni,
    gf=open('gnucomm.xls','w')
-   print>>gf,"set term gif animate opt delay 10 size 800,600 crop background '#7D96A4' font 'Tahoma' 14"
-   print>>gf,"set output 'two.gif'"
-   print>>gf,"set view map"
-   print>>gf,"set cbrange [0:50]"
-   print>>gf,"set xrange [0:1]"
-   print>>gf,"set yrange [0:1]"
-   print>>gf,"set size square"
-   print>>gf,'set palette rgbformulae 33,13,10'
-   print>>gf,"set nokey"
-   print>>gf,"set border 0"
+   #print>>gf,"set term gif animate opt delay 60 size 800,600 crop background '#7D96A4' font 'arial' 14"
+   # print>>gf,"set term pngcairo size 800,600 crop background '#7D96A4' font 'arial' 14"
+   # print>>gf,"set output 'two.gif'"
+   # print>>gf,"set view map"
+   # print>>gf,"set cbrange [0:50]"
+   # print>>gf,"set xrange [0:1]"
+   # print>>gf,"set yrange [0:1]"
+   # print>>gf,"set size square"
+   # print>>gf,'set palette rgbformulae 33,13,10'
+   # print>>gf,"set nokey"
+   # print>>gf,"set border 0"
    for i in xrange(ni):
-      print>>gf,'set title "'+str(i)+' / '+str(ni)+'"'
-      print>>gf,"splot 'history.xls' index "+str(i)+" using 1:2:3:($4) with points pt 5 ps var lt palette"
+      print>>gf,"set term png size 800,600 crop background '#7D96A4'"
+      print>>gf,"set output 'output/two%s.png'" % i
+      print>>gf,"set view map"
+      print>>gf,"set cbrange [0:50]"
+      print>>gf,"set xrange [0:1]"
+      print>>gf,"set yrange [0:1]"
+      print>>gf,"set size square"
+      print>>gf,'set palette rgbformulae 33,13,10'
+      print>>gf,"set nokey"
+      print>>gf,"set border 0"
+      print>>gf,'set title "' + str(i)+ ' / ' + str(ni) + '"'
+      print>>gf,"splot 'history.xls' index " + str(i) + " using 1:2:3:($4) with points pt 5 ps var palette"
    gf.close()
    Popen(['gnuplot','gnucomm.xls'],shell=False).wait()
 

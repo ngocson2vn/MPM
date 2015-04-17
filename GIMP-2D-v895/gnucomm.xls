@@ -1,5 +1,5 @@
-set term gif animate opt delay 10 size 800,600 crop background '#7D96A4' font 'Tahoma' 14
-set output 'two.gif'
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two0.png'
 set view map
 set cbrange [0:50]
 set xrange [0:1]
@@ -9,76 +9,436 @@ set palette rgbformulae 33,13,10
 set nokey
 set border 0
 set title "0 / 37"
-splot 'history.xls' index 0 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 0 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two1.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "1 / 37"
-splot 'history.xls' index 1 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 1 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two2.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "2 / 37"
-splot 'history.xls' index 2 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 2 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two3.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "3 / 37"
-splot 'history.xls' index 3 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 3 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two4.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "4 / 37"
-splot 'history.xls' index 4 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 4 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two5.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "5 / 37"
-splot 'history.xls' index 5 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 5 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two6.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "6 / 37"
-splot 'history.xls' index 6 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 6 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two7.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "7 / 37"
-splot 'history.xls' index 7 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 7 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two8.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "8 / 37"
-splot 'history.xls' index 8 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 8 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two9.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "9 / 37"
-splot 'history.xls' index 9 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 9 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two10.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "10 / 37"
-splot 'history.xls' index 10 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 10 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two11.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "11 / 37"
-splot 'history.xls' index 11 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 11 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two12.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "12 / 37"
-splot 'history.xls' index 12 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 12 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two13.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "13 / 37"
-splot 'history.xls' index 13 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 13 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two14.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "14 / 37"
-splot 'history.xls' index 14 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 14 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two15.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "15 / 37"
-splot 'history.xls' index 15 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 15 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two16.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "16 / 37"
-splot 'history.xls' index 16 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 16 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two17.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "17 / 37"
-splot 'history.xls' index 17 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 17 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two18.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "18 / 37"
-splot 'history.xls' index 18 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 18 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two19.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "19 / 37"
-splot 'history.xls' index 19 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 19 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two20.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "20 / 37"
-splot 'history.xls' index 20 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 20 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two21.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "21 / 37"
-splot 'history.xls' index 21 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 21 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two22.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "22 / 37"
-splot 'history.xls' index 22 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 22 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two23.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "23 / 37"
-splot 'history.xls' index 23 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 23 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two24.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "24 / 37"
-splot 'history.xls' index 24 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 24 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two25.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "25 / 37"
-splot 'history.xls' index 25 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 25 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two26.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "26 / 37"
-splot 'history.xls' index 26 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 26 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two27.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "27 / 37"
-splot 'history.xls' index 27 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 27 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two28.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "28 / 37"
-splot 'history.xls' index 28 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 28 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two29.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "29 / 37"
-splot 'history.xls' index 29 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 29 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two30.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "30 / 37"
-splot 'history.xls' index 30 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 30 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two31.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "31 / 37"
-splot 'history.xls' index 31 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 31 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two32.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "32 / 37"
-splot 'history.xls' index 32 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 32 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two33.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "33 / 37"
-splot 'history.xls' index 33 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 33 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two34.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "34 / 37"
-splot 'history.xls' index 34 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 34 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two35.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "35 / 37"
-splot 'history.xls' index 35 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 35 using 1:2:3:($4) with points pt 5 ps var palette
+set term png size 800,600 crop background '#7D96A4'
+set output 'output/two36.png'
+set view map
+set cbrange [0:50]
+set xrange [0:1]
+set yrange [0:1]
+set size square
+set palette rgbformulae 33,13,10
+set nokey
+set border 0
 set title "36 / 37"
-splot 'history.xls' index 36 using 1:2:3:($4) with points pt 5 ps var lt palette
+splot 'history.xls' index 36 using 1:2:3:($4) with points pt 5 ps var palette

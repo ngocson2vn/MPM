@@ -19,7 +19,7 @@ struct partContribs {
    };
    int Npor; // how many nodes this particle contributes to
    vector<portion>portionArray; // contribution list size set in post-setup configuration
-   const portion&operator[](int l)const {return portionArray[l];}
+   const portion& operator[](int l)const {return portionArray[l];}
 };
 
 /////// managed Array /////////////////////////
@@ -64,14 +64,14 @@ static vector<arraySC*>commonNodesPtr;
 // patch scenarios (in other words, not in this code).  This code only
 // resizes the particle and node groups at the beginning of the
 // simulation.
-template<typename T>class managedArray: public arraySC, public vector<T> {
+template<typename T> class managedArray: public arraySC, public vector<T> {
    friend class patch;
 public:
    int size() {return vector<T>::size();}
 protected:
    void resize(unsigned s) {vector<T>::resize(s);}
    void push_back(arraySC*p, unsigned i) {
-      vector<T>*ptr = dynamic_cast<vector<T>*>(p);
+      vector<T> *ptr = dynamic_cast<vector<T>*>(p);
       vector<T>::push_back(ptr->at(i));
    }
    void erase(unsigned i) {vector<T>::erase(vector<T>::begin() + i);}
@@ -79,8 +79,21 @@ protected:
 
 // These specialize each group of managed arrays and define the
 // constructor which adds each array's address to the managed group.
-template<typename T>class partArray: public managedArray<T> {friend class patch; partArray() {commonPartsPtr.push_back(this);}};
-template<typename T>class nodeArray: public managedArray<T> {friend class patch; nodeArray() {commonNodesPtr.push_back(this);}};
+template<typename T> class partArray: public managedArray<T> {
+   friend class patch; 
+   
+   partArray() {
+      commonPartsPtr.push_back(this);
+   }
+};
+
+template<typename T> class nodeArray: public managedArray<T> {
+   friend class patch; 
+
+   nodeArray() {
+      commonNodesPtr.push_back(this);
+   }
+};
 
 /////// patch class ///////////////////////////
 
@@ -142,7 +155,7 @@ public:
    nodeArray<Vector2>         gfe;           // external force on the node
    nodeArray<Vector2>         ga;            // grid acceleration
 // declared methods
-   int copyPart(const patch&pch, int i);
+   int copyPart(const patch& pch, int i);
    void resizeParts(int);
    void resizeNodes(int);
    patch(const int Nx,
@@ -153,22 +166,24 @@ public:
          const double ey,
          const int Ng,
          const double th);
-   patch&operator=(const patch&); // never defined, never used
+   patch& operator=(const patch&); // never defined, never used
 public:
 // inline methods
    int Npart()const {return numberOfParts;}
    int Nnode()const {return numberOfNodes;}
-   int insertNode(const Vector2&v) {
+   int insertNode(const Vector2& v) {
       resizeNodes(Nnode() + 1);
       gx[Nnode() - 1] = v;
       return Nnode() - 1;
    }
+
    int appendPart() {
       int nidx;
       resizeParts(Npart() + 1);
       nidx = Npart() - 1;
       return nidx;
    }
+
    // These are all inlined and optimized by the compiler (I hope)
    // These functions find the cell within which a particle is contained
    // The lower left node of the cell is always defined as the "parent"
@@ -177,26 +192,33 @@ public:
    double rsy(const double y)const {return (y - regionBegin.y) / dy + Nghost;}
    int rsi(const double x)const {return int(floor(rsx(x)));}
    int rsj(const double y)const {return int(floor(rsy(y)));}
+
    int inCell(const double x, const double y)const { // find the cell into which x,y falls
       const int i = rsi(x);
       const int j = rsj(y);
       if (i >= 0 && i < I && j >= 0 && j < J)return j * I + i;
       else throw"inCell:outside findable region";
    }
+
    int inCell(const int     p)const {return inCell(px[p].x, px[p].y);}
-   int inCell(const Vector2&p)const {return inCell(    p.x,    p.y);}
-   bool inRegion(const double x, const double y) {return x >= regionBegin.x && x < regionEnd.x && y >= regionBegin.y && y < regionEnd.y;}
-   bool inRegion(const Vector2&p) {return inRegion(p.x, p.y);}
+   int inCell(const Vector2& p)const {return inCell(    p.x,    p.y);}
+   
+   bool inRegion(const double x, const double y) {
+      return x >= regionBegin.x && x < regionEnd.x && y >= regionBegin.y && y < regionEnd.y;
+   }
+
+   bool inRegion(const Vector2& p) {return inRegion(p.x, p.y);}
+
    // This is a variation on finding the cell.  However, this is for
    // GIMP particles where portions of a particle may fall in up to
    // four cells.  Hence, we return the lowest and left-est node to
    // which the particle may contribute.
-   int inCell9(const Vector2&p)const {
-      const double&x = p.x;
-      const double&y = p.y;
+   int inCell9(const Vector2& p)const {
+      const double& x = p.x;
+      const double& y = p.y;
       const int i = rsi(x);
       const int j = rsj(y);
-      if (!(i >= 0 && i < I && j >= 0 && j < J))throw"inCell9:outside findable region";
+      if (!(i >= 0 && i < I && j >= 0 && j < J)) throw "inCell9:outside findable region";
       const double enx = rsx(x) - double(rsi(x));
       const double eny = rsy(y) - double(rsj(y));
       const int io = (enx < .5 ? i - 1 : i);
@@ -206,16 +228,9 @@ public:
 };
 
 template<typename T>
-std::ostream& operator<<(std::ostream&os, managedArray<T>&a) {
+std::ostream& operator<<(std::ostream& os, managedArray<T>& a) {
    for (int i = 0; i < a.size(); i++)os << i << '[' << a[i] << "]\n";
    return os;
 }
 
 #endif
-
-
-
-
-
-
-

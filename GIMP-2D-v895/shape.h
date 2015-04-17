@@ -42,6 +42,7 @@ struct GIMP {
    double Sx, Sy, Gx, Gy;
    int Nghost() {return 2;}
    int Nsupport() {return 9;}
+
    void uS(double& S, const double& x, const double& h, const double& l) {
       const double r = abs(x);
       if (r < l)  {S = 1. - (r * r + l * l) / (2.*h * l);         return;      }
@@ -49,6 +50,7 @@ struct GIMP {
       if (r < h + l) {S = (h + l - r) * (h + l - r) / (4.*h * l); return;}
       S = 0.;
    }
+
    void uG(double& G, const double& x, const double& h, const double& l) {
       const double r = abs(x);
       if (r < l) {G = -x / (h * l); return;}
@@ -56,6 +58,7 @@ struct GIMP {
       if (r < h + l) {G = (h + l - r) / (-2.*sgn(x) * h * l); return;}
       G = 0.;
    }
+   
    void updateSG(const patch& pch, const int p, const int m) {
       const double rx = pch.px[p].x - pch.gx[m].x;
       const double ry = pch.px[p].y - pch.gx[m].y;
@@ -73,7 +76,7 @@ struct GIMP {
 };
 
 // Each specialization of operators draws from these templated operators
-template<typename S>struct operations: public shapeSC, public S {
+template<typename S> struct operations: public shapeSC, public S {
    int Nghost() {return S::Nghost();}
    int Nsupport() {return S::Nsupport();}
    void integrate(const patch& pch, const vector<double>& pu, vector<double>& gu);
@@ -85,8 +88,8 @@ template<typename S>struct operations: public shapeSC, public S {
 };
 
 // Helper functions to create new operator instances
-operations<tent>*newMPM();
-operations<GIMP>*newGIMP();
+operations<tent>* newMPM();
+operations<GIMP>* newGIMP();
 
 
 #endif
