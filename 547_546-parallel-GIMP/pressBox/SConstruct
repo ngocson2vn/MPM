@@ -1,0 +1,18 @@
+# Copyright (c) 2009,2011, Philip Wallstedt.  All rights reserved.
+# This software is covered by the GPL-compatible license and liability disclaimer in "license.txt"
+
+# ---- LOCAL SConstruct ---- #
+
+import sys
+
+if 'nuke' in sys.argv:
+   import os
+   bad=('.exe','.xls','.png','.pdf','.gif','.pyc','.o','~','.out','.report','.fit','.vtk')
+   for each in os.listdir(os.getcwd()):
+      if each.endswith(bad):
+         os.remove(each)
+   sys.exit(0)
+
+else:
+   Import('env')
+   env.Program('run.exe','run.cpp')

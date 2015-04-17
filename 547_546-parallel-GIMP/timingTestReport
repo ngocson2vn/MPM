@@ -1,0 +1,8 @@
+timing test for fixed3D-surf-quasiGM     Unexpected wall time; standard: 26.37   candidate: 22.34
+    !! Failed one or more comparisons !!
+timing test for fixed3D-surf-quasiCG     Unexpected wall time; standard: 25.51   candidate: 22.81
+    !! Failed one or more comparisons !!
+timing test for align-MPM-mom     Unexpected wall time; standard: 19.75   candidate: 19.29
+    !! Failed one or more comparisons !!
+timing test for align-GIMP-CD     Unexpected wall time; standard: 21.48   candidate: 20.91
+    !! Failed one or more comparisons !!

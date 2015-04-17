@@ -1,0 +1,42 @@
+# Copyright (c) 2009,2011, Philip Wallstedt.  All rights reserved.
+# This software is covered by the license and liability disclaimer in "license.txt"
+
+# ---- main SConstruct ---- #
+# main is not within your problem folder, so you must
+# run Scons from your problem folder with the '/' option:
+#    scons /
+
+import os,platform
+
+if 'runDir' not in ARGUMENTS:
+   print 'You must tell scons what problem you want to compile.'
+   print 'Do something like prompt> scons / runDir=/path/to/my/prob/dir'
+runDir=ARGUMENTS['runDir']
+
+mainDir=os.getcwd()
+
+speed='-O3 -fbounds-check '
+basic='-Wall -Wextra -std=c++98 -pedantic '
+mpiIgnore='-Wno-unused-parameter -Wno-long-long '
+tricky='-Wshadow -Wconversion '
+
+extra ='-Wformat-security -Wformat=2 -Winit-self -Wmissing-include-dirs -Wswitch-default -Wswitch-enum -Wsync-nand -Wuninitialized '
+extra+='-Wunknown-pragmas -Wundef -Wcast-qual -Wstrict-overflow=4 -Wcast-align  -Wlogical-op -Wmissing-format-attribute -Wnormalized=nfc '
+extra+='-Wredundant-decls -Winvalid-pch -Wvla -Wdisabled-optimization -Wstack-protector '
+
+problematic='-Wunreachable-code -Weffc++ -Wfloat-equal -Waggregate-return -Wunsafe-loop-optimizations -Wsign-conversion '
+
+env=Environment()
+env['ENV']['PATH']+=':'+os.environ['PATH'] # scons does not use the default environment PATH
+env['CXX'] = 'mpicxx'
+env['CXXFLAGS'] = speed+basic+tricky+mpiIgnore+extra+'-Wfatal-errors'
+env['CPPPATH'] = mainDir
+env['LIBS'] = 'Main'
+env['LIBPATH'] = mainDir
+env['LINKFLAGS'] = '-s'
+
+env.SConscript(os.path.join(runDir,'SConstruct'),'env') # go forth and compile run.cpp
+
+env.Library('Main',Glob('*.cpp'))
+
+

@@ -1,0 +1,213 @@
+(dp1
+S'partProbe'
+p2
+S'1.75\t1.75\t3.75'
+p3
+sS'tInt'
+p4
+S'quasiBCG'
+p5
+sS'ppd'
+p6
+S'2\t2\t2'
+p7
+sS'inner connectivity table size'
+p8
+S'2368'
+p9
+sS'shape'
+p10
+S'MPM'
+p11
+sS'Jrows'
+p12
+S'8'
+sS'max part velocity'
+p13
+S'0'
+sS'maxLoadIter'
+p14
+S'1'
+sS'cartRank_0'
+p15
+S'_____________________________'
+p16
+sS'pres'
+p17
+S'6000000000'
+p18
+sS'probe 1 on rank 0'
+p19
+S'0.34868203999732'
+p20
+sS'NewtLim'
+p21
+S'8'
+sS'Npart'
+p22
+S'296'
+p23
+sS'estimated total wall time'
+p24
+S'1.4933333333333 sec '
+p25
+sS'Invoking Armijo tol prev'
+p26
+S'1214.8339279027'
+p27
+sS'incCount'
+p28
+S'3'
+sS'cell sizes'
+p29
+S'1\t1\t1'
+p30
+sS'probe 2 on rank 0'
+p31
+S'0.52039119935824'
+p32
+sS'probe 3 on rank 0'
+p33
+S'0.41025273486122'
+p34
+sS'timeStep'
+p35
+S'0.0625'
+p36
+sS'crash encountered with world rank'
+p37
+S'0'
+sS'testName'
+p38
+S'run'
+p39
+sS'ignore'
+p40
+S'2.2250738585072e-308'
+p41
+sS'pois'
+p42
+S'0.31'
+p43
+sS'mainDir'
+p44
+S'/data/code/gimp/541=540-RK-mom/0main'
+p45
+sS'Newton step'
+p46
+S'8'
+sS'wallTime'
+p47
+S'0.29'
+p48
+sS'dtOveride'
+p49
+S'0.0625'
+p50
+sS'Nnode'
+p51
+S'512'
+p52
+sS'probe 4 on rank 0'
+p53
+S'0.38300986542226'
+p54
+sS'outer connectivity table size'
+p55
+S'0'
+sS'loadFactor'
+p56
+S'0.1875'
+p57
+sS'Icols'
+p58
+S'8'
+sS'rhoStart'
+p59
+S'78360339.794171'
+p60
+sS'tol prev'
+p61
+S'0.97709107977781'
+p62
+sS'NewtTol'
+p63
+S'1e-06'
+p64
+sS'minMass'
+p65
+S'6.4492855500475e-11'
+p66
+sS'ending Kiter'
+p67
+S'32'
+p68
+sS'Klayers'
+p69
+S'8'
+sS'elapsedTime'
+p70
+S'0.1875'
+p71
+sS'tol start'
+p72
+S'9792.9475158181'
+p73
+sS'np'
+p74
+S'1\t1\t1'
+p75
+sS'theta'
+p76
+S'1'
+sS'linIter'
+p77
+S'32'
+p78
+sS'(Newton) residual not satisfied'
+p79
+S'9792.9475158181'
+p80
+sS'regionHi'
+p81
+S'5\t5\t5'
+p82
+sS'estimated wall time remaining'
+p83
+S'1.2133333333333 sec '
+p84
+sS'linTol'
+p85
+S'1e-100'
+p86
+sS'CFL'
+p87
+S'0.5'
+p88
+sS'current Kiter'
+p89
+S'0'
+sS'dens'
+p90
+S'7850'
+p91
+sS'Ncell'
+p92
+S'5'
+sS'Ymod'
+p93
+S'210000000000'
+p94
+sS'runDir'
+p95
+S'/data/code/gimp/541=540-RK-mom/pressBox'
+p96
+sS'Nstep'
+p97
+S'16'
+p98
+sS'regionLo'
+p99
+S'0\t0\t0'
+p100
+s.
